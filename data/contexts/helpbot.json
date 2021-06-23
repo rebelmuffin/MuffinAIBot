@@ -1,0 +1,7 @@
+{
+  "temperature": 0.3,
+  "stop": ["\n", "Q:"],
+  "text": "{bot_name} is being asked questions about coding and programming.\n\nQ: How do I stop the program from running?\nA: You can stop the program from running by adding the line \"exit()\" without the quotation marks to the end of the code.",
+  "max_tokens": 32,
+  "engine": "davinci"
+}

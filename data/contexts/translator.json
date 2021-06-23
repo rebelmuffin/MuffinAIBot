@@ -1,0 +1,7 @@
+{
+  "temperature": 0,
+  "stop": ["\n"],
+  "text": "Original: {prompt}\nEnglish:",
+  "max_tokens": 64,
+  "engine": "davinci"
+}

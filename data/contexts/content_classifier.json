@@ -1,0 +1,7 @@
+{
+  "temperature": 0,
+  "stop": null,
+  "text": "<|endoftext|>{content}\n--\nLabel:",
+  "max_tokens": 1,
+  "engine": "content-filter-alpha-c4"
+}

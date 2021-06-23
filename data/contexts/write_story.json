@@ -1,0 +1,7 @@
+{
+  "temperature": 1,
+  "stop": ["\"\"\"\"\"\""],
+  "text": "Write a story about given subject:\n\"\"\"\"\"\"\n{prompt}\n\"\"\"\"\"\"\nThis is the story I wrote:\n\"\"\"\"\"\"\n",
+  "max_tokens": 128,
+  "engine": "davinci-instruct-beta"
+}

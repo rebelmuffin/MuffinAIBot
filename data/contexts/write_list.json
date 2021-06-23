@@ -1,0 +1,7 @@
+{
+  "temperature": 1,
+  "stop": ["\"\"\"\"\"\""],
+  "text": "{prompt}\n\"\"\"\"\"\"\n1.",
+  "max_tokens": 64,
+  "engine": "davinci-instruct-beta"
+}
