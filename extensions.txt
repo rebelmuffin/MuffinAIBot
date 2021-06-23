@@ -1,0 +1,4 @@
+extensions.questions
+extensions.debug
+extensions.error_handler
+extensions.help

@@ -1,0 +1,11 @@
+# Jetbrains IDE files
+.idea
+
+# Python cache files
+__pycache__
+
+# Virutal environment
+venv
+
+# Any config files
+*.json
