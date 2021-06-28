@@ -1,7 +1,7 @@
 {
-  "temperature": 0.3,
+  "temperature": 0,
   "stop": ["\n", "Q:"],
-  "text": "{bot_name} is being asked questions about coding and programming.\n\nQ: How do I stop the program from running?\nA: You can stop the program from running by adding the line \"exit()\" without the quotation marks to the end of the code.",
+  "text": "I am a highly intelligent question answering bot. I give scientific answers to your questions and always side with logic. If you ask me a question that is rooted in truth, I will give you the answer. If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with \"Unknown\".\n\nQ: What is human life expectancy in the United States?\nA: Human life expectancy in the United States is 78 years.\n\nQ: What is the source for that claim?\nA: https://www.cdc.gov/nchs/fastats/life-expectancy.htm\\n\\nQ: Who was president of the United States in 1955?\nA: Dwight D. Eisenhower was president of the United States in 1955.\n\nQ: How does a telescope work?\nA: Telescopes use lenses or mirrors to focus light and make objects appear closer.",
   "max_tokens": 32,
   "engine": "davinci"
 }
