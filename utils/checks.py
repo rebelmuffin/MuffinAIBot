@@ -19,7 +19,7 @@ async def is_owner(ctx: commands.Context):
 async def is_admin(ctx: commands.Context):
     """Checks if the command author is in guild admin list"""
     if ctx.guild is None:
-        return
+        return True
 
     # Return true if author is bot owner
     with suppress(utils.OwnerOnly):
@@ -39,3 +39,17 @@ async def is_admin(ctx: commands.Context):
     if ctx.author.id not in data.get("admins", []):
         raise utils.AdminOnly()
     return True
+
+
+async def is_whitelisted(ctx: commands.Context):
+    """Checks if the user was specified as admin in config"""
+    # Return true if author is bot owner
+    with suppress(utils.OwnerOnly):
+        return await is_owner(ctx)
+
+    # Check config for user's ID
+    if ctx.author.id in ctx.bot.config.whitelist:
+        print(f"User \"{ctx.author}\" authorized for `{ctx.command}` with message \"{ctx.message.content}\"")
+        return True
+
+    raise utils.WhitelistOnly()

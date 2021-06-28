@@ -23,6 +23,7 @@ class BotConfig:
     data_path: str
     command_prefix: Union[str, List[str]]
     ai_config: AIConfig
+    whitelist: List[int]
 
 
 def get_config_from_path(path: str):
@@ -37,7 +38,8 @@ def get_config_from_path(path: str):
         AIConfig(
             data.get("AI_CONFIG", {"api_key": ""}).get("api_key"),
             data.get("AI_CONFIG", {"dm_respond": False}).get("dm_respond")
-        )
+        ),
+        data.get("WHITELIST")
     )
 
 

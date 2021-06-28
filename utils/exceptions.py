@@ -8,7 +8,7 @@ class OwnerOnly(commands.CheckFailure):
     """
 
     def __init__(self, message=None):
-        super().__init__(message or 'You don\'t have permission to use this command')
+        super().__init__(message or 'Only the bot owner can use this command')
 
 
 class AdminOnly(commands.CheckFailure):
@@ -19,6 +19,16 @@ class AdminOnly(commands.CheckFailure):
 
     def __init__(self, message=None):
         super().__init__(message or 'You don\'t have permission to use this command')
+
+
+class WhitelistOnly(commands.CheckFailure):
+    """Exception raised when is_whitelisted fails
+
+    Inherits from :class:`commands.CheckFailure`
+    """
+
+    def __init__(self, message=None):
+        super().__init__(message or "You are not whitelisted to use this command")
 
 
 class NoDM(commands.CheckFailure):
