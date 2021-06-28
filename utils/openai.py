@@ -41,3 +41,13 @@ async def create_completion_result_from_context(loop: BaseEventLoop, context: co
     """Asynchronously creates completion from given `AIContext` and only returns the resulting text"""
     result = await create_completion_from_context(loop, context)
     return result["choices"][0]["text"]
+
+
+async def filter_text(bot, content) -> int:
+    """Filters the text to see if it's appropriate and returns filter value"""
+    context = contexts.create_filter_context(bot.config.data_path, content)
+    result = await create_completion_from_context(bot.loop, context)
+    try:
+        return int(result["choices"][0]["text"])
+    except ValueError:
+        return 1

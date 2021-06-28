@@ -31,6 +31,16 @@ class WhitelistOnly(commands.CheckFailure):
         super().__init__(message or "You are not whitelisted to use this command")
 
 
+class TextInappropriate(commands.CheckFailure):
+    """Exception raised when is_appropriate fails
+
+    Inherits from :class:`commands.CheckFailure`
+    """
+
+    def __init__(self, message=None):
+        super().__init__(message or "Input does not look appropriate")
+
+
 class NoDM(commands.CheckFailure):
     """Exception raised when global DM check is failed
 

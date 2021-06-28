@@ -6,6 +6,23 @@ from discord.ext import commands
 import utils
 
 
+def get_prompt(ctx: commands.Context) -> str:
+    """Finds the prompt in invoked command"""
+    prefix = ctx.prefix
+
+    if not ctx.message.content.startswith(prefix):
+        return ctx.message.content
+
+    words = []
+
+    # Make sure the words are not numbers
+    for word in ctx.message.content.split(" "):
+        if not word.isnumeric() and word:
+            words.append(word)
+
+    return " ".join(words)
+
+
 async def is_owner(ctx: commands.Context):
     """Checks if the command author is bots API app owner"""
     app = await ctx.bot.application_info()
@@ -53,3 +70,22 @@ async def is_whitelisted(ctx: commands.Context):
         return True
 
     raise utils.WhitelistOnly()
+
+
+async def is_appropriate(ctx: commands.Context):
+    """Classifies the text using OpenAI classification endpoint and returns `True` if output is `0`"""
+    # Return true if author is bot owner
+    with suppress(utils.OwnerOnly):
+        return await is_owner(ctx)
+
+    # Find the prompt
+    prompt = get_prompt(ctx)
+    if not prompt:
+        raise utils.TextInappropriate()
+
+    # Classify the text
+    classification = await utils.filter_text(ctx.bot, prompt)
+    if classification in [1, 2]:
+        raise utils.TextInappropriate()
+
+    return True
